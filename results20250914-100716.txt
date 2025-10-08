@@ -1,0 +1,126 @@
+[epoch: 0]
+train_loss: 4.0795
+lr: 0.020000
+dice coefficient: 0.073
+global correct: 66.8
+average row correct: ['67.7', '39.7']
+IoU: ['66.4', '3.8']
+mean IoU: 35.1
+
+[epoch: 1]
+train_loss: 4.1084
+lr: 0.019985
+dice coefficient: 0.010
+global correct: 60.3
+average row correct: ['62.2', '6.3']
+IoU: ['60.3', '0.5']
+mean IoU: 30.4
+
+[epoch: 2]
+train_loss: 14.1005
+lr: 0.019970
+dice coefficient: 0.039
+global correct: 63.2
+average row correct: ['64.5', '24.8']
+IoU: ['62.9', '2.1']
+mean IoU: 32.5
+
+[epoch: 3]
+train_loss: 1.3550
+lr: 0.019955
+dice coefficient: 0.020
+global correct: 86.1
+average row correct: ['88.8', '5.7']
+IoU: ['86.1', '1.3']
+mean IoU: 43.7
+
+[epoch: 4]
+train_loss: 21.6661
+lr: 0.019940
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 5]
+train_loss: 1.1764
+lr: 0.019925
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 6]
+train_loss: 14.4642
+lr: 0.019910
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 7]
+train_loss: 14.1018
+lr: 0.019895
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 8]
+train_loss: 1.0833
+lr: 0.019880
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 9]
+train_loss: 12.3766
+lr: 0.019865
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 10]
+train_loss: 1.0062
+lr: 0.019850
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 11]
+train_loss: 1.0047
+lr: 0.019835
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 12]
+train_loss: 12.1989
+lr: 0.019820
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+
+[epoch: 13]
+train_loss: 12.4898
+lr: 0.019805
+dice coefficient: 0.000
+global correct: 96.7
+average row correct: ['100.0', '0.0']
+IoU: ['96.7', '0.0']
+mean IoU: 48.4
+

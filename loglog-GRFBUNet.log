@@ -1,0 +1,4 @@
+Num classes =  2
+===>_background_:	Iou-86.96; Recall (equal to the PA)-89.13; Precision-97.27
+===>Tactile_paving:	Iou-1.01; Recall (equal to the PA)-5.16; Precision-1.24
+===> mIoU: 43.9828; mPA: 47.1453; Accuracy: 86.9759

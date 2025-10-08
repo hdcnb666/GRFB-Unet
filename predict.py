@@ -37,7 +37,9 @@ def main():
     model = GRFBUNet(in_channels=3, num_classes=classes+1, base_c=32)
 
     # load weights
-    model.load_state_dict(torch.load(weights_path, map_location='cpu')['model'])
+    ckpt = torch.load(weights_path, map_location='cpu', weights_only=False)
+    state = ckpt['model'] if isinstance(ckpt, dict) and 'model' in ckpt else ckpt
+    model.load_state_dict(state)
     model.to(device)
 
 

@@ -4,7 +4,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import  List
 
-
+# 两次 3×3 卷积 + BN + ReLU。
+# 作用：经典 U-Net 的基础块，保持空间尺寸不变、提升通道表达。
+# 结构：Conv(3×3, padding=1, bias=False) → BN → ReLU，重复两次。
+# 尺寸：[B, C_in, H, W] → [B, C_out, H, W]（H/W 不变；中间 mid_channels 默认等于 C_out）
 class DoubleConv(nn.Sequential):
     def __init__(self, in_channels, out_channels, mid_channels=None):
         if mid_channels is None:
@@ -17,7 +20,9 @@ class DoubleConv(nn.Sequential):
             nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace=True)
         )
-
+# 作用：在普通双卷积后再接一个 GRFB 多分支多尺度块，增强特征表达。
+# 关键点：你传 GRFB(mid_channels, out_channels, ...)，而 mid_channels 默认等于 out_channels，所以 GRFB 的输入/输出通道都等于 out_channels，不会改尺寸。
+# 尺寸：[B, C_in, H, W] → DoubleConv → [B, C_out, H, W] → GRFB → [B, C_out, H, W]。
 class DoubleConv1(nn.Sequential):
     def __init__(self, in_channels, out_channels, mid_channels=None):
         if mid_channels is None:
@@ -30,10 +35,10 @@ class DoubleConv1(nn.Sequential):
             nn.BatchNorm2d(out_channels),
             nn.ReLU(inplace=True),
             GRFB(mid_channels, out_channels, stride=1, scale=0.1, visual=12)
-           
-
         )
 
+# 2×2 最大池化，步幅=2。
+# 作用：把空间分辨率减半（H、W 各 ÷2），通道数不变。
 class Down(nn.Sequential):
     def __init__(self, in_channels, out_channels):
         super(Down, self).__init__(
@@ -41,7 +46,10 @@ class Down(nn.Sequential):
             DoubleConv1(in_channels, out_channels)
         )
 
-
+# 定义一个上采样块。
+# in_channels：进入本块、拼接后送入卷积的通道总数（= 上采样分支通道 + 跳连分支通道）。
+# out_channels：本块输出通道。
+# bilinear：选上采样方式——双线性插值或反卷积（转置卷积）。
 class Up(nn.Module):
     def __init__(self, in_channels, out_channels, bilinear=True):
         super(Up, self).__init__()
@@ -91,6 +99,7 @@ class BasicConv(nn.Module):
             if self.relu is not None:
                 x = self.relu(x)
             return x
+
 
 class GRFB(nn.Module):
 
